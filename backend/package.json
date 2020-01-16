@@ -1,0 +1,7 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Fabrício Oliveira <fabriciololiveira@gmail.com> (http://fabriciolo.com/)",
+  "license": "MIT"
+}
