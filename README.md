@@ -1,5 +1,5 @@
 # Semana Omnistack 10
-Projeto desenvolvido durante a Omnistack da [Rocketseat](https://rocketseat.com.br/).
+Projeto "DevRadar" desenvolvido durante a Omnistack da [Rocketseat](https://rocketseat.com.br/).
 
 ## Instalação
 
