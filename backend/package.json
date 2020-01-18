@@ -5,7 +5,7 @@
   "author": "Fabrício Oliveira <fabriciololiveira@gmail.com> (http://fabriciolo.com/)",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon src/index.js"
   },
   "dependencies": {
     "express": "^4.17.1",
