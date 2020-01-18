@@ -13,7 +13,8 @@ const routes = Router();
  */
 
 // Criando rotas
-routes.get("/", (request, response) => {
+routes.post("/users", (request, response) => {
+  console.log(request.body);
   return response.json({ message: "hello omnistack week" });
 });
 
