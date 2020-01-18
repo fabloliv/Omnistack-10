@@ -12,9 +12,10 @@ const routes = Router();
  * Body: request.body ( Dados para criação ou alteração de um registro )
  */
 
-// Criando rotas
-routes.post("/users", (request, response) => {
-  console.log(request.body);
+// Criando rota para cadastro de devs
+routes.post("/devs", (request, response) => {
+  const { github_username } = request.body;
+
   return response.json({ message: "hello omnistack week" });
 });
 
