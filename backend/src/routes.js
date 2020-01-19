@@ -12,6 +12,9 @@ const routes = Router();
  * Body: request.body ( Dados para criação ou alteração de um registro )
  */
 
+// Rota para listar devs
+routes.get("/devs", DevController.index);
+
 // Criando rota para cadastro de devs
 routes.post("/devs", DevController.store);
 
