@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const DevController = require("./controllers/DevController");
+const SearchController = require("./controllers/SearchController");
 const routes = Router();
 
 // Métodos HTTP: GET, POST, PUT, DELETE
@@ -17,5 +18,8 @@ routes.get("/devs", DevController.index);
 
 // Criando rota para cadastro de devs
 routes.post("/devs", DevController.store);
+
+// rota para busca
+routes.get("/search", SearchController.index);
 
 module.exports = routes;
