@@ -1,5 +1,6 @@
 const axios = require("axios");
 const Dev = require("../models/Dev");
+const parseStringAsArray = require("../utils/parseStringAsArray");
 
 // 5 funções: index, show, store, update, destroy
 
@@ -23,7 +24,7 @@ module.exports = {
       const { name = login, avatar_url, bio } = apiResponse.data;
 
       // separa onde encontrar vírgula e remove espaços antes e depois
-      const techsArray = techs.split(",").map(tech => tech.trim());
+      const techsArray = parseStringAsArray(techs);
 
       const location = {
         type: "Point",
