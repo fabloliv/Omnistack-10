@@ -29,6 +29,16 @@ function App() {
     );
   }, []);
 
+  useEffect(() => {
+    async function loadDevs() {
+      const response = await api.get("/devs");
+
+      setDevs(response.data);
+    }
+
+    loadDevs();
+  }, []);
+
   async function handleAddDev(e) {
     e.preventDefault();
     const response = await api.post("/devs", {
@@ -39,17 +49,9 @@ function App() {
     });
     setGithubUsername("");
     setTechs("");
+
+    setDevs([...devs, response.data]);
   }
-
-  useEffect(() => {
-    async function loadDevs() {
-      const response = await api.get("/devs");
-
-      setDevs(response.data);
-    }
-
-    loadDevs();
-  }, []);
 
   return (
     <div id="app">
@@ -109,7 +111,7 @@ function App() {
       <main>
         <ul>
           {devs.map(dev => (
-            <li className="dev-item">
+            <li key={dev._id} className="dev-item">
               <header>
                 <img src={dev.avatar_url} alt={dev.name} />
                 <div className="user-info">
