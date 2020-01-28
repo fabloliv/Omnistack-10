@@ -7,6 +7,8 @@ import "./Sidebar.css";
 import "./Main.css";
 
 function App() {
+  const [devs, setDevs] = useState([]);
+
   const [github_username, setGithubUsername] = useState("");
   const [techs, setTechs] = useState("");
 
@@ -38,6 +40,16 @@ function App() {
     setGithubUsername("");
     setTechs("");
   }
+
+  useEffect(() => {
+    async function loadDevs() {
+      const response = await api.get("/devs");
+
+      setDevs(response.data);
+    }
+
+    loadDevs();
+  }, []);
 
   return (
     <div id="app">
@@ -96,20 +108,21 @@ function App() {
       </aside>
       <main>
         <ul>
-          <li className="dev-item">
-            <header>
-              <img
-                src="https://avatars0.githubusercontent.com/u/1929608?s=460&v=4"
-                alt="Fabrício"
-              />
-              <div className="user-info">
-                <strong>FAbricio</strong>
-                <span>React, Node</span>
-              </div>
-            </header>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <a href="https://github.com/fabloliv">Acessar perfil no Github</a>
-          </li>
+          {devs.map(dev => (
+            <li className="dev-item">
+              <header>
+                <img src={dev.avatar_url} alt={dev.name} />
+                <div className="user-info">
+                  <strong>{dev.name}</strong>
+                  <span>{dev.techs.join(", ")}</span>
+                </div>
+              </header>
+              <p>{dev.bio}</p>
+              <a href={`https://github.com/${dev.github_username}`}>
+                Acessar perfil no Github
+              </a>
+            </li>
+          ))}
         </ul>
       </main>
     </div>
