@@ -57,13 +57,21 @@ function Main({ navigation }) {
     setDevs(response.data);
   }
 
+  function handleRegionChanged(region) {
+    setCurrentRegion(region);
+  }
+
   if (!currentRegion) {
     return null;
   }
 
   return (
     <>
-      <MapView initialRegion={currentRegion} style={styles.map}>
+      <MapView
+        onRegionChangeComplete={handleRegionChanged}
+        initialRegion={currentRegion}
+        style={styles.map}
+      >
         <Marker coordinate={{ latitude: -22.8117918, longitude: -42.0714598 }}>
           <Image
             style={styles.avatar}
@@ -95,7 +103,7 @@ function Main({ navigation }) {
           autoCapitalize="words"
           autoCorrect={false}
         />
-        <TouchableOpacity onPress={() => {}} style={styles.loadButton}>
+        <TouchableOpacity onPress={loadDevs} style={styles.loadButton}>
           <MaterialIcons name="my-location" size={20} color="#FFF" />
         </TouchableOpacity>
       </View>
