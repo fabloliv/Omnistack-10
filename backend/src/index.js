@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const http = require("http");
+const http = require("http"); // utilizado pelo express pra fazer a app ouvir requisições http
 
 const routes = require("./routes");
 const { setupWebsocket } = require("./websocket");

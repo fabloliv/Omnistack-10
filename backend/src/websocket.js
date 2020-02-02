@@ -1,6 +1,6 @@
 const socketio = require("socket.io");
 const parseStringAsArray = require("./utils/parseStringAsArray");
-const calcuteDistance = require("./utils/calcuteDistance");
+const calculateDistance = require("./utils/calculateDistance");
 
 let io;
 const connections = [];
@@ -8,6 +8,7 @@ const connections = [];
 exports.setupWebsocket = server => {
   io = socketio(server);
 
+  // adiciona eventListenner
   io.on("connection", socket => {
     // console.log(socket.id);
     // console.log(socket.handshake.query);
@@ -31,12 +32,14 @@ exports.setupWebsocket = server => {
   });
 };
 
-// filtro pra verificar de o dev está a 10km de distancia e se possui pelo menos uma das techs
-// pra não retornar todas as conexões
+/*
+  Filtro pra verificar de o dev está a 10km de distancia e se possui pelo menos uma das techs
+  pra não retornar todas as conexões
+*/
 exports.findConnections = (coordinates, techs) => {
   return connections.filter(connection => {
     return (
-      calcuteDistance(coordinates, connection.coordinates) < 10 &&
+      calculateDistance(coordinates, connection.coordinates) < 10 &&
       connection.techs.some(item => techs.includes(item))
     );
   });
