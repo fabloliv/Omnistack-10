@@ -17,9 +17,16 @@ yarn install
 yarn dev
 ```
 
-Para iniciar o **Front-end** utilize os comandos:
+Para iniciar a **versão Web** utilize os comandos:
 ```bash
 cd web
+yarn install
+yarn start
+```
+
+Para iniciar a **versão Mobile** utilize os comandos:
+```bash
+cd mobile
 yarn install
 yarn start
 ```
