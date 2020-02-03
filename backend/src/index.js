@@ -14,7 +14,7 @@ setupWebsocket(server);
 // Cole a connection string, mude a senha e adicione os parâmetros indicados na mensagem de aviso no terminal
 // Mude na string a palavra "test" para um novo nome para o BD
 mongoose.connect(
-  "mongodb+srv://omnistack10:76xNBQbMNumC9Zdi@cluster0-8s1pj.mongodb.net/week10?retryWrites=true&w=majority",
+  "mongodb+srv://omnistack10:<password>@cluster0-8s1pj.mongodb.net/test?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
